@@ -29,8 +29,20 @@ Headless Chromium via Playwright, served locally from `out/`:
 - Desktop and mobile screenshots inspected. These are local build checks, not a deployed Vercel/Lighthouse audit.
 - GitHub profile URL `https://github.com/rorarun` returns HTTP 200.
 
-## Remaining external checks
+## Vercel production verification
 
-Vercel authentication/project import has not been completed. No new Vercel deployment URL, domain availability, public access, production response headers, or automatic deployment event has been verified. See DEPLOYMENT.md for exact account actions/settings. Config files and GitHub Actions do not themselves create or link a Vercel project.
+- Public URL: https://arun-arun-portfolio.vercel.app. The preferred `arun-portfolio.vercel.app` belongs to another project and was unavailable.
+- Project `arun-portfolio` is linked to `rorarun/Portfolio`; production tracks `main`.
+- Automatic deployment verified: pushing commit `546a84d97d7d574940b0149169022cba9eeb6e5a` triggered a Git-sourced **production** deployment (`dpl_6QNSX76mLQVWqCW5jxAiWyrwrpdU`) that reached READY.
+- The first build found an incorrect `out` Output Directory override. It was removed from both project settings and `vercel.json`; Vercel's Next.js builder now manages the output while the app retains `output:'export'`.
+- Node 24, `npm ci`, `npm run build`, repository-root build. Production and preview metadata use `NEXT_PUBLIC_SITE_URL=https://arun-arun-portfolio.vercel.app`.
+- Vercel Authentication, password protection, and IP protection are disabled for the public portfolio.
+- An isolated, nonpersistent Vercel test runner made ordinary HTTPS requests with **no cookies, Authorization headers, or deployment-protection bypass tokens**. All 12 paths returned HTTP 200 without redirects: home, four project detail pages, resume, favicon, SVG icon, Apple icon, Open Graph image, sitemap, and robots.
+- The deployed resume is `application/pdf`, 135,158 bytes, with a valid `%PDF` signature.
+- Live canonical metadata and sitemap use the confirmed production domain, with no localhost or former-host origin. `X-Content-Type-Options: nosniff` and `X-Frame-Options: DENY` were verified on the live homepage.
+- The temporary test runner was stopped after testing. No persistent sandbox was retained.
+- Interactive Chromium checks were performed on the production static export locally; the live deployment received anonymous HTTP smoke tests. A live-browser interaction/Lighthouse audit was not performed.
+
+## Remaining limitations
 
 LinkedIn, project repository/demo links, and actual screenshots have not been supplied; they remain absent. Existing diagrams are labeled conceptual visuals. Supabase admin persistence remains an explicitly deferred enhancement. Windows commands are documented but were not executed on a real Windows PC; validation ran on Linux with Node 24.
