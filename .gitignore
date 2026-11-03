@@ -1,6 +1,26 @@
+# Dependencies and build output
 node_modules/
 .next/
 out/
+dist/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+# Local environment, credentials, and host state
 .env*
 !.env.example
-*.tsbuildinfo
+.vercel/
+.npmrc
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+service-account*.json
+# Editor/OS/log files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
