@@ -2,6 +2,8 @@
 
 The existing portfolio, preserved: Next.js App Router, React, TypeScript, Tailwind CSS, Motion, Lucide, four resume-backed project case studies, searchable filters, responsive layouts, light/dark themes, reduced motion, and a real PDF resume. Repository: https://github.com/rorarun/Portfolio. Production branch: `main`.
 
+Production project: `arun-portfolio` in the `arunjnv2005-2122` Vercel workspace. Assigned public portfolio domain: https://arun-arun-portfolio.vercel.app. The originally requested `arun-portfolio.vercel.app` is owned by another project.
+
 ## Windows 11 + Visual Studio Code
 
 `/workspace/Portfolio` is a cloud workspace, not a folder on your PC. Clone the GitHub repository to obtain your own copy.
@@ -115,9 +117,9 @@ See [CONTENT_EDITING.md](CONTENT_EDITING.md) for exact properties and examples.
 
 ## Vercel deployment
 
-See [DEPLOYMENT.md](DEPLOYMENT.md) for GitHub import, Node/build settings, `main` production branch, public access, domains, and automatic deployment. `vercel.json` declares the existing static-export build. The requested `arun-portfolio.vercel.app` is a preference, not a claim that it is available or deployed.
+See [DEPLOYMENT.md](DEPLOYMENT.md) for GitHub import, Node/build settings, `main` production branch, public access, domains, and automatic deployment. `vercel.json` declares the build commands and Next.js framework without overriding its output directory. The confirmed assigned domain is `arun-arun-portfolio.vercel.app`; the preferred `arun-portfolio.vercel.app` was unavailable.
 
-Vercel account authorization is required before the project can be created and linked. No Vercel token or private credentials belong in this repository. The site needs no secrets to deploy. Once linked, Vercel deploys pushes/merges to `main` automatically.
+The Vercel project is linked to `rorarun/Portfolio`. Production uses `main`, Next.js, Node 24, `npm ci`, `npm run build`, with the Output Directory override left unset (the app still exports static files to `out/`). Vercel Authentication and password protection are disabled for this public portfolio. `NEXT_PUBLIC_SITE_URL=https://arun-arun-portfolio.vercel.app` is configured in Vercel for production and preview metadata. No Vercel token or private credentials belong in this repository. The site needs no secrets to deploy.
 
 ## Current limitations and assets
 

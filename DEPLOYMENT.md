@@ -1,19 +1,28 @@
 # Vercel production deployment
 
-## Current access boundary
+## Linked production project
 
-The app is deployable without Supabase. A Vercel account/team and GitHub integration authorization are required to create the production project. Configuration files alone do not create a Vercel project, reserve a domain, or enable automatic deployment. Do not treat the preferred hostname below as a verified deployment.
+- Workspace: `arunjnv2005-2122`
+- Project: `arun-portfolio` (`prj_L8caDXslw0lSl1NMr5CxEF8czPBd`)
+- Repository: `rorarun/Portfolio`; production branch: `main`
+- Assigned domain: https://arun-arun-portfolio.vercel.app
+- The preferred `arun-portfolio.vercel.app` is assigned to another project and was unavailable.
+- Node 24, Next.js, repository root, `npm ci`, `npm run build`, Output Directory override unset (Next.js manages the build output).
+- Public access: Vercel Authentication and password protection disabled.
+- Public metadata variable: `NEXT_PUBLIC_SITE_URL=https://arun-arun-portfolio.vercel.app` for production and preview. No deployment secrets are needed in the repository.
+
+The app runs without Supabase. Account, workspace, GitHub login, and GitHub App authorization have been completed. See QA_RESULTS.md for verified deployment checks. The instructions below are retained for future account/project migration.
 
 ## Connect the existing GitHub repository
 
 1. Sign in at https://vercel.com using the account/team that should own the portfolio.
 2. Open https://vercel.com/new and choose **Import Git Repository**. If `rorarun/Portfolio` is missing, choose the option to adjust GitHub permissions and authorize Vercel for **only** this repository. Select `rorarun/Portfolio`.
 3. Use project name `arun-portfolio` if available. Framework: **Next.js**. Root directory: repository root (`./`, where package.json is), not a folder named Portfolio inside the repository.
-4. Node.js: **24.x**. Install: `npm ci`. Build: `npm run build`. Output: `out` (the existing Next.js static export). `vercel.json` declares these build settings and baseline security headers. Keep the static export and trailing-slash handling; no catch-all SPA rewrite is required.
+4. Node.js: **24.x**. Install: `npm ci`. Build: `npm run build`. Output Directory: leave the override **unset** so Vercel’s Next.js builder can read `.next` metadata and handle the existing static export. `vercel.json` declares these build settings and baseline security headers. Keep the static export and trailing-slash handling; no catch-all SPA rewrite is required.
 5. Deploy from `main`. Confirm the production branch under Project Settings → Environments → Production / Branch Tracking (or Git → Production Branch, depending on the current Vercel UI) is `main`. Confirm Settings → Git shows `rorarun/Portfolio` connected and automatic deployments enabled.
 6. No environment variables are necessary for the current public portfolio. Supabase is a future enhancement. Leave its example fields unset.
 7. Under Deployment Protection, disable Vercel Authentication/password protection **for production** if enabled and supported by your plan. The production portfolio must open in a signed-out/incognito browser. Preview deployments may retain protection.
-8. In Settings → Domains, confirm the assigned production domain. Prefer `arun-portfolio.vercel.app`. If unavailable, try `arun-arun-portfolio.vercel.app`, `rorarun-portfolio.vercel.app`, or `arun-engineering.vercel.app`; these alternatives are not availability-verified.
+8. In Settings → Domains, confirm the assigned production domain. This project uses `arun-arun-portfolio.vercel.app`, which was successfully attached and verified. `arun-portfolio.vercel.app` was unavailable. Other alternatives such as `rorarun-portfolio.vercel.app` or `arun-engineering.vercel.app` have not been checked.
 
 ## SEO origin
 
