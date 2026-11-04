@@ -125,6 +125,5 @@ The Vercel project is linked to `rorarun/Portfolio`. Production uses `main`, Nex
 
 - `/admin` is a public setup overview with no write API. The optional future Supabase scaffold is documented in [ADMIN_SETUP.md](ADMIN_SETUP.md); it does not block deployment.
 - Contact composes an email in the visitor's email app. It does not send from a server.
-- LinkedIn, project repository/demo URLs, and actual screenshots were not supplied. They stay omitted. Current visuals are labeled conceptual illustrations.
 - Resume metrics are self-reported. Job titles follow the explicit brief. No additional performance claims have been invented.
 - See [QA_RESULTS.md](QA_RESULTS.md) for checks performed and remaining limits.
